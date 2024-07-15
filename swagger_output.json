@@ -5,10 +5,10 @@
     "description": "REST API with Express and Firestore",
     "version": "1.0.0"
   },
-  "host": "localhost:5500",
-  "basePath": "/api",
+  "host": "restapi-dcq2.onrender.com",
+  "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/items": {
