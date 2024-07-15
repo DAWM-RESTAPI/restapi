@@ -137,6 +137,27 @@ exports.updateItem = async (req, res) => {
   } catch (error) {
     res.status(400).send(error.message);
   }
+
+  /* 
+           #swagger.tags = ['Items']
+           #swagger.description = ''
+           #swagger.summary = ''
+           #swagger.parameters['id'] = {
+               description: '',
+               required: true,
+           }
+           #swagger.parameters['data'] = {
+               in: 'body',
+               description: '',
+               required: true,
+           }
+           #swagger.responses[200] = {
+               description: '',
+           }
+           #swagger.responses[400] = {
+               description: '',
+           }
+       */
 };
 
 /**
@@ -167,4 +188,21 @@ exports.deleteItem = async (req, res) => {
   } catch (error) {
     res.status(400).send(error.message);
   }
+
+  /* 
+         #swagger.tags = ['Items']
+         #swagger.description = ''
+         #swagger.summary = ''
+         #swagger.parameters['id'] = {
+             description: '',
+             required: true,
+         }
+
+         #swagger.responses[200] = {
+             description: '',
+         }
+         #swagger.responses[400] = {
+             description: '',
+         }
+       */
 };
