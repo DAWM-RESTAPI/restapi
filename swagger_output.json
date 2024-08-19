@@ -6,55 +6,138 @@
     "version": "1.0.0"
   },
   "host": "restapi-dcq2.onrender.com",
-  "basePath": "/",
+  "basePath": "/api",
   "schemes": [
     "https"
   ],
   "paths": {
     "/items": {
       "post": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create an item",
+        "description": "Create an item",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Data to create an item",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Item successfully created"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       },
       "get": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get all items entries",
+        "description": "Get all items entries",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Items entries successfully obtained"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       }
     },
     "/items/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get an item entry",
+        "description": "Get an item entry",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string",
+            "description": "Item id"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Get an item by id"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Item not found"
+          },
+          "408": {
+            "description": "Request Timeout"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Delete an item",
+        "description": "Delete an item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Item id"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item successfully deleted"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       },
@@ -62,20 +145,25 @@
         "tags": [
           "Items"
         ],
-        "summary": "",
-        "description": "",
+        "summary": "Update an item",
+        "description": "Update an item",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Item id"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           },
           {
             "name": "data",
             "in": "body",
-            "description": "",
+            "description": "Data to update an item",
             "required": true,
             "schema": {
               "type": "object",
@@ -85,34 +173,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Item successfully updated"
           },
           "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Items"
-        ],
-        "summary": "",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
+            "description": "Bad request"
           },
-          "400": {
-            "description": "Bad Request"
+          "408": {
+            "description": "Request Timeout"
           }
         }
       }
