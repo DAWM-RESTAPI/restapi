@@ -30,6 +30,10 @@ app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use('/api', require('./routes/api'));
 
+app.get('/', (req, res) => {
+  res.status(204).send(); // 204 No Content
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
